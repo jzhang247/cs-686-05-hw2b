@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>    
+    <form id="myForm">
+        <label>Name: <input type="text" name="name" required></label><br>
+        <label>Email: <input type="text" name="email" required></label><br>
+        <label>
+            College Level:
+            <input type="radio" name="collegeLevel" value="BS" required> BS
+            <input type="radio" name="collegeLevel" value="MS"> MS
+        </label><br>
+        <label>Classes Taken: <input type="text" name="classesTaken"></label><br>
+        <label>Class Expectation:<br>
+            <textarea name="classExpectation"></textarea>
+        </label><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const obj = Object.fromEntries(formData.entries());
+
+            const res = await fetch("/api/send-form", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(obj),
+            });
+
+            const result = await res.json();
+            alert(result.message);
+        });
+    </script>
+
+</body>
+
+</html>
