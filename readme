@@ -2,6 +2,13 @@ Junge Zhang (Alex)
 jzhang247
 
 A simple web application.
-To start server, run `node server.js`.
+To start server, please, after checkout and at repo root, run
+```
+npm install
+node server.js
+```
+
 It will serve both frontend and backend at http://localhost:3000
 or overriden by environment PORT.
+
+Persistent storage at ./formData.js
