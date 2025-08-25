@@ -3,4 +3,5 @@ jzhang247
 
 A simple web application.
 To start server, run `node server.js`.
-It will serve both frontend and backend.
+It will serve both frontend and backend at http://localhost:3000
+or overriden by environment PORT.
